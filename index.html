@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuraChat AI | Intelligent Assistant Interface</title>
+    <meta name="description" content="A professional AI chatbot interface showcasing advanced UI/UX design principles">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for additional features -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>NeuraChat</span>
+                </div>
+                <p class="tagline">Intelligent Conversation Interface</p>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-sliders-h"></i> Settings</h3>
+                <div class="settings-group">
+                    <label class="switch">
+                        <input type="checkbox" checked id="typing-indicator">
+                        <span class="slider"></span>
+                        <span>Typing Indicator</span>
+                    </label>
+                    <label class="switch">
+                        <input type="checkbox" checked id="sound-effects">
+                        <span class="slider"></span>
+                        <span>Sound Effects</span>
+                    </label>
+                    <label class="switch">
+                        <input type="checkbox" id="dark-mode">
+                        <span class="slider"></span>
+                        <span>Dark Mode</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-chart-line"></i> Conversation Stats</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="message-count">1</span>
+                        <span class="stat-label">Messages</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="response-time">1.5s</span>
+                        <span class="stat-label">Avg Response</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="chat-duration">0m</span>
+                        <span class="stat-label">Duration</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-lightbulb"></i> Quick Actions</h3>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-action="clear">
+                        <i class="fas fa-trash-alt"></i> Clear Chat
+                    </button>
+                    <button class="quick-btn" data-action="export">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="quick-btn" data-action="examples">
+                        <i class="fas fa-comment-dots"></i> Examples
+                    </button>
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <p class="version">v2.1.0 | UI/UX Design Portfolio</p>
+            </div>
+        </aside>
+        
+        <!-- Main Chat Interface -->
+        <main class="main-content">
+            <div class="chat-container">
+                <header class="chat-header">
+                    <div class="header-left">
+                        <div class="avatar">
+                            <i class="fas fa-robot"></i>
+                            <div class="status-indicator active"></div>
+                        </div>
+                        <div class="header-info">
+                            <h1>NeuraChat Assistant</h1>
+                            <div class="subtitle">
+                                <span class="status">Online</span>
+                                <span class="divider">•</span>
+                                <span class="model">GPT-4 Enhanced</span>
+                                <span class="divider">•</span>
+                                <span class="typing-status" id="live-status">Ready to chat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="icon-btn" id="theme-toggle" title="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="icon-btn" id="fullscreen-toggle" title="Fullscreen">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <div class="dropdown">
+                            <button class="icon-btn" id="menu-toggle" title="More options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                                <a href="#"><i class="fas fa-info-circle"></i> About</a>
+                                <hr>
+                                <a href="#"><i class="fas fa-sign-out-alt"></i> Exit</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                
+                <div class="chat-window" id="chat-window">
+                    <div class="welcome-section">
+                        <div class="welcome-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h2>Welcome to NeuraChat</h2>
+                        <p class="welcome-text">Your intelligent assistant powered by advanced AI. Ask me anything, and I'll provide thoughtful, contextual responses.</p>
+                        
+                        <div class="quick-prompts">
+                            <button class="prompt-btn" data-prompt="Explain quantum computing in simple terms">
+                                <i class="fas fa-atom"></i> Quantum Computing
+                            </button>
+                            <button class="prompt-btn" data-prompt="Write a creative product description for a smartwatch">
+                                <i class="fas fa-pen-fancy"></i> Creative Writing
+                            </button>
+                            <button class="prompt-btn" data-prompt="Plan a 3-day itinerary for Tokyo">
+                                <i class="fas fa-map-marked-alt"></i> Travel Planning
+                            </button>
+                            <button class="prompt-btn" data-prompt="Debug this JavaScript code snippet">
+                                <i class="fas fa-code"></i> Code Help
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="message bot welcome">
+                        <div class="message-header">
+                            <span class="sender">NeuraChat AI</span>
+                            <span class="timestamp">Just now</span>
+                        </div>
+                        <div class="message-content">
+                            Hello! I'm your upgraded AI assistant with enhanced capabilities. I can help with creative tasks, technical problems, research, and much more. How can I assist you today?
+                        </div>
+                        <div class="message-actions">
+                            <button class="action-btn"><i class="far fa-thumbs-up"></i></button>
+                            <button class="action-btn"><i class="far fa-thumbs-down"></i></button>
+                            <button class="action-btn"><i class="fas fa-share"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <div class="input-actions">
+                        <button class="input-action-btn" id="attach-btn" title="Attach file">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="input-action-btn" id="voice-btn" title="Voice input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="input-action-btn" id="emoji-btn" title="Insert emoji">
+                            <i class="far fa-smile"></i>
+                        </button>
+                    </div>
+                    
+                    <form id="chat-form" class="chat-form">
+                        <div class="input-wrapper">
+                            <input type="text" 
+                                   id="user-input" 
+                                   placeholder="Ask NeuraChat anything... (Try 'Design tips for mobile apps' or 'Explain blockchain')" 
+                                   autocomplete="off"
+                                   autofocus>
+                            <div class="input-hint">
+                                <i class="fas fa-lightbulb"></i> Press Enter to send, Shift+Enter for new line
+                            </div>
+                        </div>
+                        
+                        <button type="submit" id="send-btn" class="send-btn" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="input-footer">
+                        <span class="disclaimer">
+                            <i class="fas fa-shield-alt"></i> Conversations are private and encrypted
+                        </span>
+                        <span class="model-info">
+                            <i class="fas fa-microchip"></i> GPT-4 • 128K context
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-showcase">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Fast Responses</h4>
+                    <p>Average response time under 2 seconds</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h4>Secure & Private</h4>
+                    <p>End-to-end encryption</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-language"></i>
+                    <h4>Multilingual</h4>
+                    <p>Supports 50+ languages</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-magic"></i>
+                    <h4>Creative AI</h4>
+                    <p>Advanced content generation</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Typing Indicator Template -->
+    <template id="typing-template">
+        <div class="message bot typing">
+            <div class="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+            <span class="typing-text">NeuraChat is thinking...</span>
+        </div>
+    </template>
+    
+    <!-- Confetti Effect Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <script src="script.js"></script>
+</body>
+</html>
